@@ -58,3 +58,31 @@ class Student(Person):
 
 
         for i in data["students"]:
+           if i["roll_no"] == roll_no:
+              print("Roll Number already exists")
+              return
+
+        data["students"].append({
+           "name ": name,
+           "age" : age,
+           "email" : email,
+           "roll_no" : roll_no
+        })
+
+        save()
+        print(f"Student {name} registered successfully")
+
+
+student = Student()
+
+print(
+      "press 1 to Regiter Student"\n
+      "press 2 to Register Teacher"\n
+      "press 3 to Add Grade"\n
+      "press 4 to view Student Details"\n
+      "press 5 to view Teacher Details"\n)
+  
+choice = int(input("Enter your choice: "))
+
+if choice == 1:
+    student.register()
