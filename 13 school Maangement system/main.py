@@ -1,17 +1,17 @@
 import json
 from abc import ABC, abstractmethod
-import pathlib as path
+from pathlib import Path 
 
-database = "school_data.json"
 
-data = {
-    "students": [],
-    "teachers": [],}
 
-if path(database).exists():
+
+database = Path(__file__).parent / "school_data.json"
+
+data = { "students": [], "teachers": []}
+
+if Path(database).exists():
   with open(database, "r") as f:
     content = f.read()
-
     if content:
       data = json.loads(content)
 
@@ -20,6 +20,7 @@ def save():
       json.dump(data, f, indent=4)
 
 class Person(ABcC):
+class Person(ABC):
 
   @abstractmethod
   def get_roles(self):
@@ -73,16 +74,59 @@ class Student(Person):
         print(f"Student {name} registered successfully")
 
 
+class Teacher(Person):
+
+    def get_roles(self):
+        return "Teacher"
+
+    def register(self):
+        name = input("Enter Your Name: ")
+        age = int(input("Enter your Age: "))
+        email = input("Enter your Email: ")
+        emp_id = input("Enter your Employee ID: ")
+        subject = input("Enter your subject:")
+
+        if not Person.validate_email(email):
+            print("Invlid Email")
+
+
+        for i in data["teachers"]:
+           if i["emp_id"] == emp_id:
+              print("Employee ID already exists")
+              return
+
+        data["teachers"].append({
+           "name ": name,
+           "age" : age,
+           "email" : email,
+           "emp_id" : emp_id,
+           "subject" : subject
+        })
+
+        save()
+        print(f"Teacher {name} registered successfully")
+
+    def view_details(self):
+       pass
+
+
+
+
+teacher = Teacher()
+
 student = Student()
 
 print(
-      "press 1 to Regiter Student"\n
-      "press 2 to Register Teacher"\n
-      "press 3 to Add Grade"\n
-      "press 4 to view Student Details"\n
-      "press 5 to view Teacher Details"\n)
+      "press 1 to Regiter Student\n"
+      "press 2 to Register Teacher\n"
+      "press 3 to Add Grade\n"
+      "press 4 to view Student Details\n"
+      "press 5 to view Teacher Details")
   
 choice = int(input("Enter your choice: "))
 
 if choice == 1:
     student.register()
+
+elif choice == 2:
+   teacher.register()

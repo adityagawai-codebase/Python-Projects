@@ -1,0 +1,25 @@
+{
+    "students": [
+        {
+            "name ": "Aditya Bhimrao Gawai",
+            "age": 21,
+            "email": "aditya@email.com",
+            "roll_no": "2207110856"
+        },
+        {
+            "name ": "Sanket Mandlik",
+            "age": 21,
+            "email": "sanket@gmail.com",
+            "roll_no": "18"
+        }
+    ],
+    "teachers": [
+        {
+            "name ": "N.D.Gaikwad",
+            "age": 36,
+            "email": "gaikwad@email.com",
+            "emp_id": "231",
+            "subject": "Maths"
+        }
+    ]
+}
