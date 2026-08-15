@@ -16,3 +16,26 @@ if path(database).exists():
       data = json.loads(content)
 
 
+class Person(ABcC):
+
+  @abstractmethod
+  def get_roles(self):
+    pass
+
+
+  @abstractmethod
+  def register(self):
+    pass
+
+  @abstractmethod
+  def view_details(self):
+    pass
+
+  @staticmethod
+  def validate_email(email):
+     if "@" in email and "." in email:
+        return True
+     else:
+        return False
+
+
