@@ -15,6 +15,9 @@ if path(database).exists():
     if content:
       data = json.loads(content)
 
+def save():
+   with open(database,"w") as f:
+      json.dump(data, f, indent=4)
 
 class Person(ABcC):
 
@@ -39,3 +42,19 @@ class Person(ABcC):
         return False
 
 
+class Student(Person):
+
+    def get_roles(self):
+        return "Student"
+
+    def register(self):
+        name = input("Enter Your Name: ")
+        age = int(input("Enter your Age: "))
+        email = input("Enter your Email: ")
+        roll_no = input("Enter your Roll Number: ")
+
+        if not Person.validate_email(email):
+            print("Invlid Email")
+
+
+        for i in data["students"]:
