@@ -19,7 +19,6 @@ def save():
    with open(database,"w") as f:
       json.dump(data, f, indent=4)
 
-class Person(ABcC):
 class Person(ABC):
 
   @abstractmethod
@@ -72,6 +71,9 @@ class Student(Person):
 
         save()
         print(f"Student {name} registered successfully")
+
+    def view_details(self):
+       pass
 
 
 class Teacher(Person):
