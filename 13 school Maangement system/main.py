@@ -66,7 +66,8 @@ class Student(Person):
            "name ": name,
            "age" : age,
            "email" : email,
-           "roll_no" : roll_no
+           "roll_no" : roll_no,
+           "grades": {}
         })
 
         save()
@@ -74,6 +75,20 @@ class Student(Person):
 
     def view_details(self):
        pass
+
+    def add_grade(self):
+       roll_no = input("Enter your Roll Number: ")
+       subject = input("Enter your subject: ")
+       grade = input("Enter your grade: ")
+
+       for i in data["students"]:
+          if i["roll_no"] == roll_no:
+             i["grades"][subject] = grade
+             save()
+             print("Grade added successfully!")
+             return
+       print("student not found!")
+
 
 
 class Teacher(Person):
@@ -132,3 +147,6 @@ if choice == 1:
 
 elif choice == 2:
    teacher.register()
+
+elif choice == 3:
+   student.add_grade()

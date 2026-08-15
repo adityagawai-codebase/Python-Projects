@@ -4,13 +4,17 @@
             "name ": "Aditya Bhimrao Gawai",
             "age": 21,
             "email": "aditya@email.com",
-            "roll_no": "2207110856"
+            "roll_no": "2207110856",
+            "grades": {
+                "maths": "90"
+            }
         },
         {
             "name ": "Sanket Mandlik",
             "age": 21,
             "email": "sanket@gmail.com",
-            "roll_no": "18"
+            "roll_no": "18",
+            "grades": {}
         }
     ],
     "teachers": [
