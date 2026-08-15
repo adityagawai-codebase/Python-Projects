@@ -74,7 +74,17 @@ class Student(Person):
         print(f"Student {name} registered successfully")
 
     def view_details(self):
-       pass
+         roll_no = input("Enter your Roll Number: ")
+   
+         for i in data["students"]:
+            if i["roll_no"] == roll_no:
+               print(f"Name: {i['name ']}")
+               print(f"Age: {i['age']}")
+               print(f"Email: {i['email']}")
+               print(f"Roll Number: {i['roll_no']}")
+               print(f"Grades: {i['grades']}")
+               return
+         print("student not found!")
 
     def add_grade(self):
        roll_no = input("Enter your Roll Number: ")
@@ -124,7 +134,17 @@ class Teacher(Person):
         print(f"Teacher {name} registered successfully")
 
     def view_details(self):
-       pass
+         emp_id = input("Enter your Employee ID: ")
+   
+         for i in data["teachers"]:
+            if i["emp_id"] == emp_id:
+               print(f"Name: {i['name ']}")
+               print(f"Age: {i['age']}")
+               print(f"Email: {i['email']}")
+               print(f"Employee ID: {i['emp_id']}")
+               print(f"Subject: {i['subject']}")
+               return
+         print("Teacher not found!")
 
 
 
@@ -150,3 +170,9 @@ elif choice == 2:
 
 elif choice == 3:
    student.add_grade()
+
+elif choice == 4:
+   student.view_details()
+
+elif choice == 5:
+   teacher.view_details()
