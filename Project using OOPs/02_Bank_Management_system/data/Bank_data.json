@@ -1,0 +1,23 @@
+{
+    "customers": [
+        {
+            "Name": "Aditya",
+            "Age": 21,
+            "Contact": "9876543210"
+        }
+    ],
+    "accounts": [
+        {
+            "Account_No": 10001,
+            "Address": "Pune",
+            "Pin": 1234,
+            "Balance": 5000,
+            "Customer": {
+                "Name": "Aditya",
+                "Age": 21,
+                "Contact": "9876543210"
+            }
+        }
+    ],
+    "transactions": []
+}
